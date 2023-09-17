@@ -17,7 +17,7 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed {{ Request::is('/') ? 'active' : '' }} "
+                                        <a class="dd-menu collapsed {{ Request::is('/') ? 'active' : '' }}"
                                             href="{{ route('home') }}" aria-controls="navbarSupportedContent"
                                             aria-expanded="false" aria-label="Toggle navigation">Beranda</a>
                                     </li>
@@ -37,20 +37,25 @@
                                 </ul>
 
                                 <li class="nav-item">
-                                    <a class=" dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                        data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
-                                        aria-expanded="false" aria-label="Toggle navigation">Tentang Kami</a>
+                                    <a class=" dd-menu collapsed {{ Request::is('tentang*') ? 'active' : '' }}"
+                                        href="#" data-bs-toggle="collapse" data-bs-target="#submenu-1-1"
+                                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                                        aria-label="Toggle navigation">Tentang Kami</a>
                                     <ul class="sub-menu collapse" id="submenu-1-1">
-                                        <li class="nav-item"><a href="/templates/home/about-us.html">Sekilas</a>
+                                        <li class="nav-item {{ Request::is('tentang.sekilas') ? 'active' : '' }}">
+                                            <a href="{{ route('tentang.sekilas') }}">Sekilas</a>
                                         </li>
-                                        <li class="nav-item"><a href="javascript:void(0)">Visi&Misi</a></li>
-                                        <li class="nav-item"><a href="javascript:void(0)">Struktur Organisasi</a>
+                                        <li class="nav-item {{ Request::is('tentang.visi.misi') ? 'active' : '' }}">
+                                            <a href="{{ route('tentang.visi.misi') }}">Visi&Misi</a>
+                                        </li>
+                                        <li class="nav-item {{ Request::is('tentang.struktur') ? 'active' : '' }}"><a
+                                                href="{{ route('tentang.struktur') }}">Struktur Organisasi</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class=" dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                        data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
+                                    <a class="dd-menu collapsed {{ Request::is('kontak*') ? 'active' : '' }}"
+                                        href="{{ route('kontak.kami') }}" aria-controls="navbarSupportedContent"
                                         aria-expanded="false" aria-label="Toggle navigation">Kontak Kami</a>
                                 </li>
                             </div> <!-- navbar collapse -->
